@@ -136,7 +136,7 @@ const Home = () => {
             </a>
             
             <a
-              href="https://linkedin.com/in/mohamed-athik-r"
+              href="https://linkedin.com/in/mohamedathik786"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-8 py-4 bg-blue-600/80 backdrop-blur-sm text-white rounded-2xl hover:bg-blue-700/80 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 border border-blue-500"
