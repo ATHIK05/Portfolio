@@ -382,7 +382,7 @@ const Contact = () => {
                 Email Me
               </a>
               <a
-                href="https://linkedin.com/in/mohamed-athik-r"
+                href="https://linkedin.com/in/mohamedathik786"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
