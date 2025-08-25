@@ -156,8 +156,8 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-8 h-8" />,
       title: "LinkedIn",
-      value: "linkedin.com/in/mohamed-athik-r",
-      link: "https://linkedin.com/in/mohamed-athik-r",
+      value: "linkedin.com/in/mohamedathik786",
+      link: "https://linkedin.com/in/mohamedathik786",
       color: "from-blue-600 to-blue-800",
       description: "Professional networking"
     }
