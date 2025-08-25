@@ -4,6 +4,10 @@ import { Github, Linkedin, Mail, Download, Code, Smartphone, ArrowDown, Play, Ex
 
 const Home = () => {
   const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [charIndex, setCharIndex] = useState(0);
+  
   const roles = [
     'Full Stack Developer',
     'Mobile App Developer', 
@@ -14,14 +18,28 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentText = roles[currentRole];
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting && charIndex < currentText.length) {
+        setDisplayText(currentText.substring(0, charIndex + 1));
+        setCharIndex(charIndex + 1);
+      } else if (isDeleting && charIndex > 0) {
+        setDisplayText(currentText.substring(0, charIndex - 1));
+        setCharIndex(charIndex - 1);
+      } else if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && charIndex === 0) {
+        setIsDeleting(false);
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, currentRole, roles]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 pt-20 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 pt-32 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -47,11 +65,11 @@ const Home = () => {
         <div className="animate-fade-in flex flex-col items-center justify-center max-w-5xl mx-auto">
           {/* Profile Image with enhanced styling */}
           <div className="relative mb-8 group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute -inset-2 bg-white/20 rounded-full blur-sm opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
             <img
               src="/me.jpg"
               alt="Mohamed Athik R"
-              className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white shadow-2xl bg-gray-200 group-hover:scale-105 transition-transform duration-500"
+              className="relative w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-3 border-white/80 shadow-xl bg-gray-200 group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
               <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
@@ -70,7 +88,8 @@ const Home = () => {
             {/* Animated role display */}
             <div className="h-16 md:h-20 flex items-center justify-center">
               <span className="text-2xl md:text-4xl font-semibold text-blue-300 transition-all duration-500 transform">
-                {roles[currentRole]}
+                {displayText}
+                <span className="animate-pulse">|</span>
               </span>
             </div>
           </div>

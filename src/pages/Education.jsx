@@ -42,7 +42,7 @@ const Education = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-32 pb-12">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Education</h1>

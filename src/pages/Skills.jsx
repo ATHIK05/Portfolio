@@ -2,8 +2,6 @@ import React, { useRef, useEffect } from 'react';
 import { Code, Database, Smartphone, Globe, Settings, Wrench, Cloud, Shield } from 'lucide-react';
 
 const Skills = () => {
-  const scrollRef = useRef(null);
-
   const skillCategories = [
     {
       title: 'Programming Languages',
@@ -63,27 +61,8 @@ const Skills = () => {
     }
   ];
 
-  // Auto-scroll effect
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    let scrollAmount = 0;
-    const scrollStep = 1;
-    const scrollInterval = setInterval(() => {
-      scrollAmount += scrollStep;
-      scrollContainer.scrollLeft = scrollAmount;
-      
-      if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-        scrollAmount = 0;
-      }
-    }, 50);
-
-    return () => clearInterval(scrollInterval);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 pt-32 pb-12">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
@@ -95,17 +74,13 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Horizontal Scrolling Skills Container */}
+        {/* Skills Grid Container */}
         <div className="relative mb-16">
-          <div 
-            ref={scrollRef}
-            className="flex gap-8 overflow-x-auto scrollbar-hide pb-8"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {skillCategories.map((category, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-80 group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 hover:-translate-y-4 bg-gradient-to-br from-white/5 to-white/10 border border-white/20 backdrop-blur-md"
+                className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 hover:-translate-y-4 bg-gradient-to-br from-white/5 to-white/10 border border-white/20 backdrop-blur-md"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
@@ -118,21 +93,21 @@ const Skills = () => {
                 </div>
 
                 {/* Content */}
-                <div className="relative p-8 h-full flex flex-col min-h-[400px] justify-between">
+                <div className="relative p-6 h-full flex flex-col min-h-[350px] justify-between">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl shadow-lg flex items-center justify-center border border-white/30">
+                    <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl shadow-lg flex items-center justify-center border border-white/30">
                       <div className="text-white">{category.icon}</div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+                    <h3 className="text-xl font-bold text-white leading-tight">{category.title}</h3>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3 flex-grow">
+                  <div className="grid grid-cols-1 gap-2 flex-grow">
                     {category.skills.map((skill, skillIndex) => (
                       <div
                         key={skillIndex}
                         className="group/skill relative overflow-hidden"
                       >
-                        <div className="px-4 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl text-sm font-semibold border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 shadow-md text-center group-hover/skill:shadow-lg">
+                        <div className="px-3 py-2 bg-white/10 backdrop-blur-sm text-white rounded-lg text-sm font-medium border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105 shadow-md text-center group-hover/skill:shadow-lg">
                           {skill}
                         </div>
                       </div>
@@ -140,16 +115,6 @@ const Skills = () => {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-          
-          {/* Scroll indicators */}
-          <div className="flex justify-center mt-8 gap-2">
-            {skillCategories.map((_, index) => (
-              <div
-                key={index}
-                className="w-2 h-2 bg-white/30 rounded-full hover:bg-white/60 transition-colors duration-300"
-              />
             ))}
           </div>
         </div>

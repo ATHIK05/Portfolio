@@ -8,6 +8,8 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -16,10 +18,114 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:mohamedathikr.22msc@kongu.edu?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    window.location.href = mailtoLink;
+    setIsSubmitting(true);
+    
+    try {
+      // Send email using EmailJS or similar service
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'mohamedathikr.22msc@kongu.edu',
+          subject: `Portfolio Contact: ${formData.subject}`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+              <h2 style="color: #333; text-align: center; margin-bottom: 30px;">New Contact Form Submission</h2>
+              
+              <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="color: #495057; margin-bottom: 15px;">Contact Details:</h3>
+                <p style="margin: 8px 0;"><strong>Name:</strong> ${formData.name}</p>
+                <p style="margin: 8px 0;"><strong>Email:</strong> ${formData.email}</p>
+                <p style="margin: 8px 0;"><strong>Subject:</strong> ${formData.subject}</p>
+              </div>
+              
+              <div style="background-color: #fff; padding: 20px; border: 1px solid #e9ecef; border-radius: 8px;">
+                <h3 style="color: #495057; margin-bottom: 15px;">Message:</h3>
+                <p style="line-height: 1.6; color: #333;">${formData.message}</p>
+              </div>
+              
+              <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+                <p style="color: #6c757d; font-size: 14px;">This message was sent from your portfolio contact form.</p>
+              </div>
+            </div>
+          `,
+          replyTo: formData.email,
+          autoReply: {
+            to: formData.email,
+            subject: 'Thank you for contacting Mohamed Athik R',
+            html: `
+              <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+                <div style="text-align: center; margin-bottom: 30px;">
+                  <h2 style="color: #2563eb; margin-bottom: 10px;">Thank You for Contacting Me!</h2>
+                  <p style="color: #6b7280; font-size: 16px;">This is an automated response to confirm we received your message.</p>
+                </div>
+                
+                <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; border-left: 4px solid #2563eb; margin-bottom: 25px;">
+                  <h3 style="color: #1e40af; margin-bottom: 15px;">Dear ${formData.name},</h3>
+                  <p style="color: #374151; line-height: 1.6; margin-bottom: 15px;">
+                    Thank you for reaching out! I have received your message regarding "<strong>${formData.subject}</strong>" and truly appreciate your interest in connecting with me.
+                  </p>
+                  <p style="color: #374151; line-height: 1.6;">
+                    I will personally review your message and respond within <strong>1-2 business days</strong>. 
+                    If your inquiry is urgent, please feel free to reach out to me directly on LinkedIn.
+                  </p>
+                </div>
+                
+                <div style="background-color: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                  <h4 style="color: #374151; margin-bottom: 15px;">Your Message Summary:</h4>
+                  <p style="color: #6b7280; margin: 5px 0;"><strong>Subject:</strong> ${formData.subject}</p>
+                  <p style="color: #6b7280; margin: 5px 0;"><strong>Submitted:</strong> ${new Date().toLocaleDateString('en-US', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                  })}</p>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 25px;">
+                  <p style="color: #374151; margin-bottom: 15px;">Connect with me on social media:</p>
+                  <div style="display: inline-block;">
+                    <a href="https://linkedin.com/in/mohamed-athik-r" style="display: inline-block; margin: 0 10px; padding: 10px 20px; background-color: #0077b5; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">LinkedIn</a>
+                    <a href="https://github.com/ATHIK05" style="display: inline-block; margin: 0 10px; padding: 10px 20px; background-color: #333; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">GitHub</a>
+                  </div>
+                </div>
+                
+                <div style="text-align: center; padding-top: 20px; border-top: 1px solid #e5e7eb;">
+                  <p style="color: #9ca3af; font-size: 14px; margin-bottom: 5px;">Best regards,</p>
+                  <p style="color: #2563eb; font-weight: bold; font-size: 16px;">Mohamed Athik R</p>
+                  <p style="color: #6b7280; font-size: 14px;">Full Stack Developer & Mobile App Developer</p>
+                  <p style="color: #9ca3af; font-size: 12px; margin-top: 15px;">
+                    This is an automated response. Please do not reply to this email.
+                  </p>
+                </div>
+              </div>
+            `
+          }
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setSubmitStatus('error');
+      // Fallback to mailto
+      const mailtoLink = `mailto:mohamedathikr.22msc@kongu.edu?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      window.location.href = mailtoLink;
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(''), 5000);
+    }
   };
 
   const contactMethods = [
@@ -65,7 +171,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-32 pb-12">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Get In Touch</h1>
@@ -144,6 +250,19 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">Send a Message</h2>
+            
+            {submitStatus === 'success' && (
+              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+                <p className="text-green-800 font-medium">✅ Message sent successfully! I'll respond within 1-2 business days.</p>
+              </div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+                <p className="text-red-800 font-medium">❌ Failed to send message. Please try again or contact me directly.</p>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -212,10 +331,13 @@ const Contact = () => {
               
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+                disabled={isSubmitting}
+                className={`w-full flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 ${
+                  isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
               >
                 <Send size={24} />
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
 

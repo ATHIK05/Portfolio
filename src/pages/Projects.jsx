@@ -22,7 +22,7 @@ const Projects = () => {
       title: 'Medicare - Doctor Appointment System',
       description: 'Comprehensive healthcare platform with web app for doctors and mobile app for patients. Features appointment booking, prescription management, and patient records.',
       technologies: ['Firebase', 'Flutter', 'React JS', 'TypeScript'],
-      github: 'https://github.com/ATHIK05/Medicare',
+      github: 'https://github.com/ATHIK05/crescent_moon_proj1.git',
       icon: <Heart className="w-6 h-6" />,
       category: 'Full Stack',
       image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -33,7 +33,7 @@ const Projects = () => {
       title: 'LAMP Fellows App',
       description: 'Collaborative platform similar to Microsoft Teams for organizing events, sharing documents, and team communication with integrated chat features.',
       technologies: ['Flutter', 'Dart', 'Firebase', 'Real-time Chat'],
-      github: '#',
+      liveUrl: 'https://drive.google.com/file/d/1jo8CMun0PpwvMC0fzzNFh0LSSNCMxU0W/view?usp=sharing',
       icon: <Users className="w-6 h-6" />,
       category: 'Mobile App',
       image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -44,7 +44,7 @@ const Projects = () => {
       title: 'JKPlus - B2B Business Platform',
       description: 'Comprehensive mobile app connecting wholesalers and retailers digitally. Wholesalers manage products and control visibility while retailers browse and order.',
       technologies: ['Flutter', 'Dart', 'Firebase'],
-      github: 'https://github.com/Athik01/beplus',
+      liveUrl: 'https://drive.google.com/file/d/1WC74LIcGC-sf1thBlJVYLkVi20yK6z1-/view?usp=sharing',
       icon: <Store className="w-6 h-6" />,
       category: 'Mobile App',
       image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -64,7 +64,7 @@ const Projects = () => {
       title: 'Security Fuzzer Tool',
       description: 'Advanced security tool for identifying vulnerabilities in websites, APIs, and web applications with automated security checks and reporting.',
       technologies: ['Python3', 'JavaScript', 'Burp Suite', 'Wfuzz', 'SSLyze'],
-      github: 'https://github.com/ATHIK05/Security-Fuzzer',
+      github: 'https://github.com/ATHIK05/SIH-24WEBAPP.git',
       icon: <Shield className="w-6 h-6" />,
       category: 'Security',
       image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -74,7 +74,7 @@ const Projects = () => {
       title: 'Fleece - Wool Transport Monitoring',
       description: 'Application connecting wool producers directly with end-users, eliminating intermediaries and providing educational resources for quality enhancement.',
       technologies: ['MIT App Inventor', 'Firebase', 'CloudDB'],
-      github: '#',
+      liveUrl: 'https://drive.google.com/file/d/1K49Q87Iz1JKyMIM1kJWbvJQDH0Mk7Tcy/view?usp=sharing',
       icon: <Truck className="w-6 h-6" />,
       category: 'Mobile App',
       image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -84,7 +84,7 @@ const Projects = () => {
       title: 'Ease - Waste Management App',
       description: 'Environmental app encouraging proper waste disposal with reward system for recycling, using dustbins, and connecting with waste collectors.',
       technologies: ['Flutter', 'Dart', 'Firebase'],
-      github: 'https://github.com/Athik01/ease',
+      liveUrl: 'https://drive.google.com/file/d/1jo8CMun0PpwvMC0fzzNFh0LSSNCMxU0W/view?usp=sharing',
       icon: <Recycle className="w-6 h-6" />,
       category: 'Mobile App',
       image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -94,7 +94,6 @@ const Projects = () => {
       title: 'E-Commerce Java Application',
       description: 'Command-line e-commerce application with product catalog management, cart handling, and order processing using OOP principles.',
       technologies: ['Java', 'SQL', 'JDBC'],
-      github: '#',
       icon: <ShoppingCart className="w-6 h-6" />,
       category: 'Backend',
       image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -104,7 +103,6 @@ const Projects = () => {
       title: 'Pet Inventory Management System',
       description: 'Web application for efficient pet inventory tracking with CRUD operations, availability monitoring, and management dashboard.',
       technologies: ['PHP', 'CSS', 'HTML', 'JavaScript', 'TailwindCSS'],
-      github: '#',
       icon: <Heart className="w-6 h-6" />,
       category: 'Web App',
       image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -114,7 +112,6 @@ const Projects = () => {
       title: 'Fitness Tracking Web Application',
       description: 'Comprehensive fitness tracker for logging workouts, monitoring calorie intake, and tracking progress with personalized insights.',
       technologies: ['JavaScript', 'MongoDB', 'React', 'Express'],
-      github: '#',
       icon: <Dumbbell className="w-6 h-6" />,
       category: 'Web App',
       image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=600',
@@ -131,7 +128,7 @@ const Projects = () => {
   const featuredProjects = projects.filter(project => project.featured);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-24 pb-12">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 pt-32 pb-12">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Featured Projects</h1>
@@ -195,24 +192,30 @@ const Projects = () => {
                   </div>
                   
                   <div className="flex gap-3">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl hover:from-gray-700 hover:to-gray-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      <Github size={18} />
-                      Code
-                    </a>
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-xl hover:from-gray-700 hover:to-gray-800 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                      >
+                        <Github size={18} />
+                        Code
+                      </a>
+                    )}
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl hover:from-green-500 hover:to-green-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                        className={`flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${
+                          project.liveUrl.includes('play.google.com') 
+                            ? 'from-green-600 to-green-700 hover:from-green-500 hover:to-green-600' 
+                            : 'from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600'
+                        } text-white rounded-xl transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105`}
                       >
                         <ExternalLink size={18} />
-                        Live App
+                        {project.liveUrl.includes('play.google.com') ? 'Live App' : 'View Demo'}
                       </a>
                     )}
                   </div>
@@ -295,24 +298,30 @@ const Projects = () => {
                 </div>
                 
                 <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    <Github size={16} />
-                    Code
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg hover:from-gray-700 hover:to-gray-800 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                    >
+                      <Github size={16} />
+                      Code
+                    </a>
+                  )}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-lg hover:from-green-500 hover:to-green-600 transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105"
+                      className={`flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${
+                        project.liveUrl.includes('play.google.com') 
+                          ? 'from-green-600 to-green-700 hover:from-green-500 hover:to-green-600' 
+                          : 'from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600'
+                      } text-white rounded-lg transition-all duration-300 text-sm font-medium shadow-lg hover:shadow-xl transform hover:scale-105`}
                     >
                       <ExternalLink size={16} />
-                      Live
+                      {project.liveUrl.includes('play.google.com') ? 'Live' : 'Demo'}
                     </a>
                   )}
                 </div>

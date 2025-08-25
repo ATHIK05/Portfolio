@@ -66,7 +66,9 @@ const Footer = () => {
             <h4 className="text-lg font-semibold">Get In Touch</h4>
             <div className="space-y-2 text-gray-400">
               <p>Perundurai, Tamil Nadu, India</p>
-              <p>mohamedathikr.22msc@kongu.edu</p>
+              <a href="mailto:mohamedathikr.22msc@kongu.edu" className="hover:text-white transition-colors duration-200">
+                mohamedathikr.22msc@kongu.edu
+              </a>
               <p>Available for freelance work</p>
             </div>
           </div>
