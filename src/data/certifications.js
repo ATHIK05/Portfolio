@@ -1,0 +1,42 @@
+export const certifications = [
+  {
+    title: 'Oracle Java SE 17 Professional',
+    issuer: 'Oracle',
+    year: '2025',
+    featured: true,
+    detail: 'Industry-gold certification (1Z0-829), earned while still a student.',
+    image: '/images/oracle_java_17_certificate.png',
+  },
+  {
+    title: 'Oracle AI Vector Search Certified',
+    issuer: 'Oracle',
+    year: '2025',
+    featured: true,
+    detail: 'Vector embeddings and similarity search on Oracle Database 23ai.',
+    image: '/images/oracle_ai_vector_search_certificate.png',
+  },
+  {
+    title: 'Oracle APEX Cloud Developer',
+    issuer: 'Oracle',
+    year: '2025',
+    featured: true,
+    detail: 'Low-code cloud application development on Oracle APEX.',
+    image: '/images/oracle_apex_certificate.png',
+  },
+  {
+    title: 'Flutter Development Bootcamp',
+    issuer: 'Udemy',
+    year: '2024',
+    featured: false,
+    detail: 'Production Flutter patterns, state management and Firebase.',
+    image: null,
+  },
+  {
+    title: 'Java Programming',
+    issuer: 'NPTEL',
+    year: '2024',
+    featured: false,
+    detail: 'Core Java, OOP and data structures.',
+    image: null,
+  },
+]

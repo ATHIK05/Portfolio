@@ -1,0 +1,15 @@
+export const awards = [
+  { title: 'Winty Mindz', event: 'Hackathon', tier: 'gold', year: '2024', level: 'College' },
+  { title: 'Ideathon 2k24', event: 'Ideathon', tier: 'gold', year: '2024', level: 'College' },
+  { title: 'Ideathon 2k25', event: 'Ideathon', tier: 'gold', year: '2025', level: 'College' },
+  { title: 'POC 2k24', event: 'Proof of Concept', tier: 'gold', year: '2024', level: 'College' },
+  { title: 'POC 2k25', event: 'Proof of Concept', tier: 'gold', year: '2025', level: 'College' },
+  { title: 'Ruby Day', event: 'Tech Fest', tier: 'gold', year: '2024', level: 'College' },
+  { title: 'Science Day', event: 'Exhibition', tier: 'silver', year: '2024', level: 'College' },
+  { title: 'Paper Presentation', event: 'Symposium', tier: 'silver', year: '2024', level: 'Inter-college' },
+  { title: 'KEC Hackathon 2k25', event: 'Hackathon', tier: 'silver', year: '2025', level: 'State' },
+  { title: 'PSG Login Contest', event: 'Coding Contest', tier: 'silver', year: '2024', level: 'Inter-college' },
+  { title: '2nd Academic Rank', event: 'MSc Software Systems', tier: 'academic', year: '2025-26', level: 'Department' },
+  { title: '3rd Academic Rank', event: 'MSc Software Systems', tier: 'academic', year: '2024-25', level: 'Department' },
+  { title: 'Coding Club Treasurer', event: 'Leadership', tier: 'leadership', year: '2024', level: 'College' },
+]
