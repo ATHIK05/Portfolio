@@ -19,7 +19,7 @@ export default function Contact() {
         <div className="space-y-4">
           {/* LinkedIn Card */}
           <a
-            href="https://www.linkedin.com/in/mohamedathik"
+            href="https://www.linkedin.com/in/mohamedathik786/"
             target="_blank"
             rel="noreferrer"
             className="card-glass flex items-center gap-4 rounded-xl p-5 border border-[rgba(123,97,255,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,119,181,0.12)] group"

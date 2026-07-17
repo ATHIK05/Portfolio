@@ -28,7 +28,7 @@ export const projects = [
     isLive: true,
     isFeatured: true,
     links: {
-      linkedin: 'https://www.linkedin.com/in/mohamedathik',
+      linkedin: 'https://www.linkedin.com/in/mohamedathik786/',
       github: ''
     },
     mockup: null,
